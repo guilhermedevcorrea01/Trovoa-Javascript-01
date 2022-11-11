@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Trovoa Cultural</title>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <nav id="nav">
+        <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+          <span id="hamburger"></span>
+        </button>
+        <ul id="menu" role="menu" class="menu">
+          <li><a href="/">Sobre Nós</a></li>
+          <li><a href="/">Projetos</a></li>
+          <li><a href="/">Editais</a></li>
+          <li><a href="/">Contato</a></li>
+        </ul>
+        <section class="imagensnav">
+         <img src="./IMAGENS/LOGOb.png" class="imgnav">
+         <img src="./IMAGENS/fundo01.JPG" class="fundoimg">
+        </section>
+        <section class="titulo" id="titulo">
+          <h1 id="trovoa" class="trovoa"> Trovoa Cultural</h1>
+          <h2 id="h2" class="h2"> Produtora Cultural fortalecendo a cena 015</h2>
+        </section>
+    </nav>
+</header>
+<div class="sobre" id="sobre">
+    <h1>Sobre nós</h1>
+    <p id="sobrenos">Trovoa cultural é uma produtora artística criada em 2022,
+      com objetivo de dar visibilidade para novos artistas que já
+      possuem material, porém não tem espaço para se apresentar.</p>
+    
+    </div>
+
+<script>
+    const btnMobile = document.getElementById('btn-mobile');
+
+    function toggleMenu(event) {
+  if (event.type === 'touchstart') event.preventDefault();
+  const nav = document.getElementById('nav');
+  nav.classList.toggle('active');
+  const active = nav.classList.contains('active');
+  event.currentTarget.setAttribute('aria-expanded', active);
+  if (active) {
+    event.currentTarget.setAttribute('aria-label', 'Fechar Menu');
+  } else {
+    event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
+  }
+}
+
+    btnMobile.addEventListener('click', toggleMenu);
+    btnMobile.addEventListener('touchstart', toggleMenu);
+
+    function typeWriter(element){
+      const textarray = element.innerHTML.split('');
+      element.innerHTML = '';
+
+      textarray.forEach((letra, i) =>{
+        setTimeout (function(){
+          element.innerHTML += letra
+        }, 115*i)
+      })
+    }
+
+    function typeWritertwo(element){
+      const textarray = element.innerHTML.split('');
+      element.innerHTML = '';
+
+      textarray.forEach((letra, i) =>{
+        setTimeout (function(){
+          element.innerHTML += letra
+        }, 45*i)
+      })
+    }
+
+    const titulo = document.getElementById('trovoa')
+    typeWriter(titulo)
+    typeWriter(document.getElementById('h2'))
+    typeWritertwo(document.getElementById('sobrenos'))
+
+</script>
+
+</body>
+</html>
